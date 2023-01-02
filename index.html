@@ -2,144 +2,147 @@
 <html lang="en">
 
 <head>
-    <meta charset="utf-8"/>
-    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <title>Turbo King</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1"/>
-    <link rel="shortcut icon" href="/favicon.png" type="image/x-icon"/>
-    <link href="https://fonts.googleapis.com/css?family=Rubik:300,500,700" rel="stylesheet"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="shortcut icon" href="/favicon.png" type="image/x-icon" />
+    <link href="https://fonts.googleapis.com/css?family=Rubik:300,500,700" rel="stylesheet" />
     <style>
+    html {
+        background-color: white;
+    }
+
+    @media (prefers-color-scheme: dark) {
         html {
-            background-color: white;
+            filter: brightness(0.5);
         }
+    }
 
-        @media (prefers-color-scheme: dark) {
-            html {
-                filter: brightness(0.5);
-            }
-        }
-
-        body {
-            font-family: 'Rubik', -apple-system, BlinkMacSystemFont, 'Segoe UI',
+    body {
+        font-family: 'Rubik', -apple-system, BlinkMacSystemFont, 'Segoe UI',
             Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue',
             sans-serif;
-            font-size: calc(10px + 0.33vw);
-            -webkit-font-smoothing: antialiased;
-            padding: 5vh 10vw;
-            color: #121314;
-        }
+        font-size: calc(10px + 0.33vw);
+        -webkit-font-smoothing: antialiased;
+        padding: 5vh 10vw;
+        color: #121314;
+    }
 
-        h1 {
-            font-size: 4.5em;
-            font-weight: 500;
-            margin-bottom: 0;
-        }
+    h1 {
+        font-size: 4.5em;
+        font-weight: 500;
+        margin-bottom: 0;
+    }
 
-        p {
-            font-size: 1.6em;
-            font-weight: 300;
-            line-height: 1.4;
-            max-width: 28em;
-        }
+    p {
+        font-size: 1.6em;
+        font-weight: 300;
+        line-height: 1.4;
+        max-width: 28em;
+    }
 
-        .a-color {
-            text-decoration: none;
-            color: #121314;
-            position: relative;
-        }
+    .a-color {
+        text-decoration: none;
+        color: #121314;
+        position: relative;
+    }
 
-        .a-color:after {
-            content: '';
-            position: absolute;
-            z-index: -1;
-            top: 60%;
-            left: -0.1em;
-            right: -0.1em;
-            bottom: 0;
-            transition: top 200ms cubic-bezier(0, 0.8, 0.13, 1);
-            background-color: rgba(79, 192, 141, 0.5);
-        }
+    .a-color:after {
+        content: '';
+        position: absolute;
+        z-index: -1;
+        top: 60%;
+        left: -0.1em;
+        right: -0.1em;
+        bottom: 0;
+        transition: top 200ms cubic-bezier(0, 0.8, 0.13, 1);
+        background-color: rgba(79, 192, 141, 0.5);
+    }
 
-        .a-color:hover:after {
-            top: 0%;
-        }
+    .a-color:hover:after {
+        top: 0%;
+    }
 
-        footer {
-            width: 100%;
-            /* padding: 40px 0; */
-            font-size: 0.8em;
-            font-weight: 300;
-            text-align: center;
-        }
-        .footer-p{
-            margin-left: 30%;
-        }
-        .showTime{
-            font-weight: bold;
-        }
+    footer {
+        width: 100%;
+        /* padding: 40px 0; */
+        font-size: 0.8em;
+        font-weight: 300;
+        text-align: center;
+    }
 
+    .footer-p {
+        margin-left: 30%;
+    }
+
+    .showTime {
+        font-weight: bold;
+    }
     </style>
 </head>
-<script >
-    let t = null;
+<script>
+let t = null;
+t = setTimeout(time, 1000);
+
+function time() {
+    clearTimeout(t);
+    let dateTime = new Date();
+    const y = dateTime.getFullYear();
+    const mt = dateTime.getMonth() + 1;
+    const day = dateTime.getDate();
+    const h = dateTime.getHours();
+    const m = dateTime.getMinutes();
+    const s = dateTime.getSeconds();
+    document.querySelector(".showTime").innerHTML =
+        y +
+        "年" +
+        mt +
+        "月" +
+        day +
+        "日" +
+        "&nbsp&nbsp" +
+        h +
+        "时" +
+        m +
+        "分" +
+        s +
+        "秒";
     t = setTimeout(time, 1000);
-    function time() {
-        clearTimeout(t);
-        let dateTime = new Date();
-        const y = dateTime.getFullYear();
-        const mt = dateTime.getMonth() + 1;
-        const day = dateTime.getDate();
-        const h = dateTime.getHours();
-        const m = dateTime.getMinutes();
-        const s = dateTime.getSeconds();
-        document.querySelector(".showTime").innerHTML =
-            y +
-            "年" +
-            mt +
-            "月" +
-            day +
-            "&nbsp&nbsp" +
-            h +
-            "时" +
-            m +
-            "分" +
-            s +
-            "秒";
-        t = setTimeout(time, 1000);
-    }
+}
 </script>
+
 <body>
-<h1>Hello.</h1>
-<p style="font-weight: 500; font-size: 2.2em">My name is <a class="a-color" href="https://turbo-king.github.io"
-                                                            target="_blank">Turbo</a>.</p>
-<p>A software developer based in China.</p>
-<p>My Chinese name is 魏志豪(Wei Zhi Hao).</p>
-<p>Talk with me by
-    <a class="a-color" href="mailto:turbo.ahao@foxmail.com">Email</a>.
-</p>
-<p>Follow me on </p>
-<ul>
-    <li>
-        <p><a href="https://github.com/Turbo-King" class="a-color" target="_blank">GitHub</a></p>
-    </li>
-    <li>
-        <p><a href="https://twitter.com/TurboKing1024" class="a-color" target="_blank">Twitter</a></p>
-    </li>
-    <li>
-        <p><a href="https://instagram.com/turbo.hao" class="a-color" target="_blank">Instagram</a></p>
-    </li>
-    <li>
-        <p><a href="https://weibo.com/u/5657728345" class="a-color" target="_blank">微博</a></p>
-    </li>
-    <li>
-        <p><a href="https://space.bilibili.com/476268871" class="a-color" target="_blank">哔哩哔哩</a></p>
-    </li>
-</ul>
-<footer>
-    <p class="footer-p">Copyright © 2022 Turbo King</p>
-    <p class="footer-p"><a class="a-color" href="https://beian.miit.gov.cn/" target="_blank">津ICP备2021001207号-1</a></p>
-    <p class="showTime footer-p"></p>
-</footer>
+    <h1>Hello.</h1>
+    <p style="font-weight: 500; font-size: 2.2em">My name is <a class="a-color" href="https://turbo-king.github.io" target="_blank">Turbo</a>.</p>
+    <p>A software developer based in China.</p>
+    <p>My Chinese name is 魏志豪(Wei Zhi Hao).</p>
+    <p>Talk with me by
+        <a class="a-color" href="mailto:turbo.ahao@foxmail.com">Email</a>.
+    </p>
+    <p>Follow me on </p>
+    <ul>
+        <li>
+            <p><a href="https://github.com/Turbo-King" class="a-color" target="_blank">GitHub</a></p>
+        </li>
+        <li>
+            <p><a href="https://twitter.com/TurboKing1024" class="a-color" target="_blank">Twitter</a></p>
+        </li>
+        <li>
+            <p><a href="https://instagram.com/turbo.hao" class="a-color" target="_blank">Instagram</a></p>
+        </li>
+        <li>
+            <p><a href="https://weibo.com/u/5657728345" class="a-color" target="_blank">微博</a></p>
+        </li>
+        <li>
+            <p><a href="https://space.bilibili.com/476268871" class="a-color" target="_blank">哔哩哔哩</a></p>
+        </li>
+    </ul>
+    <footer>
+        <p class="footer-p">Copyright © 2022 Turbo King</p>
+        <p class="footer-p"><a class="a-color" href="https://beian.miit.gov.cn/" target="_blank">津ICP备2021001207号-1</a></p>
+        <p class="showTime footer-p"></p>
+    </footer>
 </body>
 
 </html>
